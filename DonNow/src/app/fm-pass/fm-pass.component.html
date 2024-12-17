@@ -1,0 +1,116 @@
+<div class="zz full-height d-flex justify-content-center align-items-center">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+        <!-- Left Section -->
+        <div class="col-md-4 text-center p-3">
+          <img src="assets/logo-no-background.png" alt="Logo" class="logo">
+          <p class="text-muted">
+            <strong>
+              Réinitialisez votre mot de passe en trois étapes simples !
+            </strong>
+          </p>
+        </div>
+      <!-- Multistep Form Section -->
+      <div class="col-md-6 col-lg-5">
+        <div class="border rounded shadow p-4 form-container">
+          <div>
+            <h3 class="h3 text-center">
+              <span style="color: #FE5630">R</span>éinitialisation
+            </h3>
+            <hr>
+          </div>
+          <!-- Multi-Step Form -->
+          <form (ngSubmit)="onSubmit()" #forgotPasswordForm="ngForm">
+            <!-- Step 1: Email -->
+            <div *ngIf="currentStep === 1">
+              <div class="mb-3 row">
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Entrez votre email"
+                    [(ngModel)]="email"
+                    name="email"
+                    required
+                  />
+                  <div *ngIf="emailError" class="text-danger mt-1">Veuillez entrer un email valide.</div>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="button" class="btn p" (click)="goToStep(2)">Envoyer</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Code Verification -->
+            <div *ngIf="currentStep === 2">
+              <p class="text-center">Un code de vérification a été envoyé à <strong>{{ email }}</strong>.</p>
+              <div class="mb-3 row">
+                <label for="code" class="col-sm-3 col-form-label">Code</label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="code"
+                    placeholder="Entrez le code"
+                    [(ngModel)]="verificationCode"
+                    name="code"
+                    required
+                  />
+                  <div *ngIf="codeError" class="text-danger mt-1">Code incorrect. Veuillez vérifier et réessayer.</div>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="button" class="btn p" (click)="goToStep(3)">Vérifier</button>
+              </div>
+            </div>
+
+            <!-- Step 3: New Password -->
+            <div *ngIf="currentStep === 3">
+              <div class="mb-3 row">
+                <label for="password" class="col-sm-3 col-form-label">Nouveau mot de passe</label>
+                <div class="col-sm-9">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Nouveau mot de passe"
+                    [(ngModel)]="newPassword"
+                    name="password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="confirmPassword" class="col-sm-3 col-form-label">Confirmer</label>
+                <div class="col-sm-9">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                    placeholder="Confirmez le mot de passe"
+                    [(ngModel)]="confirmPassword"
+                    name="confirmPassword"
+                    required
+                  />
+                  <div *ngIf="passwordError" class="text-danger mt-1">Les mots de passe ne correspondent pas.</div>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn p">Réinitialiser</button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Step Navigation -->
+          <div class="text-center mt-3" *ngIf="currentStep > 1">
+            <a type="button" style="color: #063970; text-decoration: none;" (click)="goToStep(currentStep - 1)">
+              Retour
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

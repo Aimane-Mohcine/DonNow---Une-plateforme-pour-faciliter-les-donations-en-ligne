@@ -1,0 +1,98 @@
+.social-list a {
+  font-size: 1.5rem; /* Adjust icon size */
+}
+
+.border-white {
+  border-color: #FFFFFF !important; /* White color for the horizontal line */
+}
+
+.site-header , .bg-ff{
+  background-color: #063970 !important;
+}
+
+.aa{
+  font-family: 'Raleway', sans-serif;  /* Font as before */
+  font-weight: bold;
+}
+.d {
+  color: #063970;
+}
+.d1 {
+  color: #FE5630;
+}
+
+.table1 {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #063970;  /* Background color */
+  color: lightgrey;  /* Text color */
+  border: 1px solid #ddd;  /* Light border for table cells */
+}
+
+.table1 td, .table1 th {
+  padding: 8px;
+  text-align: left;
+}
+
+.table1 td {
+  border: 1px solid #ddd;  /* Border for table cells */
+}
+
+bi-dot{
+  color: #FFFFFF;
+}
+
+
+.seven .a {
+  text-align: center;
+  font-size:30px; font-weight:300; color:#222; letter-spacing:1px;
+  text-transform: uppercase;
+
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.seven .a:after,.seven .a:before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #f8f8f8;
+  border-top: 1px solid #f8f8f8;
+  height: 5px;
+  background-color:#063970;
+}
+
+.page-footer ,.footer-last-section,.social-media-section{
+  background-color:#063970;
+}
+/* Custom styles for dropdown menu */
+.custom-dropdown-menu {
+  background-color: #f8f9fa; /* Light background */
+  border: 1px solid #dee2e6; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.custom-dropdown-menu .dropdown-item {
+  font-size: 14px; /* Slightly smaller font size */
+  color: #495057; /* Neutral text color */
+  padding: 10px 15px; /* Enhanced padding */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+  background-color: #063970; /* Blue hover background */
+  color: white; /* White text on hover */
+}
+
+.custom-dropdown-menu .dropdown-item i {
+  font-size: 16px; /* Adjust icon size */
+  color: #FE5630; /* Icon color */
+}
+
+.custom-dropdown-menu .dropdown-item:hover i {
+  color: #FE5630; /* Icon changes to white on hover */
+}

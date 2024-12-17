@@ -1,0 +1,46 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-light" style="width: 280px;">
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto p text-decoration-none">
+      <img src="{{user.photoUrl}}" alt="User Avatar" width="32" height="32" class="rounded-circle me-2">
+      <strong>{{ user.prenom }}</strong>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li>
+        <a (click)="setActiveTab('dashboard')" type="button" [class.active]="activeTab === 'dashboard'" class="nav-link p">
+          <i class="bi bi-speedometer2 me-2"></i>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a (click)="setActiveTab('transaction')" type="button" [class.active]="activeTab === 'transaction'" class="nav-link p">
+          <i class="bi bi-table me-2"></i>
+          ADD Compagnes
+        </a>
+      </li>
+      <li>
+        <a (click)="setActiveTab('ndon')" type="button" [class.active]="activeTab === 'ndon'" class="nav-link p">
+          <i class="bi bi-grid me-2"></i>
+          Compagnes
+        </a>
+      </li>
+      <hr style="color: #063970">
+      <button class="btn btn-danger w-100 mt-2" (click)="logout()">Logout</button>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content" class="p-0 flex-grow-0">
+    <div *ngIf="activeTab === 'dashboard'">
+      <!-- Pass the userId to the DashboardComponent -->
+      <app-dashboard [userId]="userId"></app-dashboard>
+    </div>
+    <div *ngIf="activeTab === 'transaction'">
+      <app-transaction></app-transaction>
+    </div>
+    <div *ngIf="activeTab === 'ndon'">
+      <app-ndon [userId]="userId"></app-ndon>
+    </div>
+  </div>
+</div>

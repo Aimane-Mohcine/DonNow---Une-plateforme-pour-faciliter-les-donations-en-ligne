@@ -1,0 +1,168 @@
+<div class="c">
+  <!-- Header -->
+  <header>
+    <div class="p-4 text-center">
+      <h3 class="h2 fw-bold p-0" style="color: #063970; font-family:'Berlin Sans FB Demi';"> {{ compagneData.titre }}  </h3>
+      <p class="p-0">
+        <img src="{{userData.photoUrl}}" alt="User Avatar" width="32" height="32" class="rounded-circle me-2">
+        <span class="text-secondary">Organized by : </span> <a [routerLink]="['/Profile', iduser]" class="fw-bold link-underline link-underline-opacity-0 text-black a">{{userData.nom}} {{userData.prenom}}</a></p>
+    </div>
+  </header>
+
+  <section class="course-listing-page py-0">
+    <div class="container d-flex justify-content-center">
+      <div class="card mb-5 bg-light" style="max-width: 80%;">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <div class="image-container">
+              <img src="{{compagneData.photoUrl}}" class="img-fluid rounded-start" alt="Donation Image">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+              <h5 class="card-title text-secondary fw-bold fs-1 opacity-50 text-center">DonNow</h5>
+              <div class="m-md-5 py-5">
+                <h1 class="h1 text-success fw-bold text-center" style="font-family: 'Berlin Sans FB Demi'">
+                  {{donated}}$
+                </h1>
+                <hr class="hr"
+                  [style.width.%]="100"
+                  [style.height.px]="10"
+                  [style.background]="
+                  'linear-gradient(to right, green ' + donationPercentage + '%, #ccc 0%)'
+                "
+                  style="border: none; margin: 0; padding: 0; width: 100%;"
+                />
+                <p class="card-text text-center">
+                  <small class="text-body-secondary">
+                    raised of {{ goal }}$ USD goal
+                  </small>
+                </p>
+                <div class="d-flex justify-content-center mt-4">
+                  <button class="btn fw-bold btn-success me-2" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Donate Now
+                  </button>
+                  <button class="btn fw-bold btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#Share" >
+                    Share Link
+                  </button>
+                </div>
+              </div>
+
+              <!-- Final Date Section -->
+              <div class="final-date mt-4 text-center">
+                <p class="text-secondary" style="font-size: 1.2rem;">Final date for donations:</p>
+                <p class="text-danger fw-bold" style="font-size: 1.5rem;">
+                  {{ finalDate | date: 'dd/MM/yyyy' }}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-listing-page py-0">
+    <div class="container-fluid d-flex"> <!-- Use container-fluid for full width -->
+      <div class="mb-5 row bg-white border-0" style="max-width: 80%; margin: 0 auto;">
+        <h5 class="fs-3 text-center fw-bold" style="color: #063970"><span style="color: #FE5630">D</span>escription</h5>
+        <hr style="width: 100%; border: 1px solid black;"> <!-- Make hr span the full width -->
+        <p class="fs-5 text-start" > {{compagneData.description}} </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header bg-success">
+          <h4 class="modal-title">{{ compagneData.titre }}</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="donationAmount" class="form-label" >Donner un montant :</label>
+              <input
+                type="number"
+                class="form-control text-black"
+                id="donationAmount"
+                name="donationAmount"
+                placeholder="A partire de 0.1$"
+                [(ngModel)]="amount"
+
+                required>
+            </div>
+          </form>
+        </div>
+        <!-- Modal Footer -->
+        <div class="row d-flex justify-content-center p-2">
+          <div class="col-md-6 d-grid">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Annuler
+            </button>
+          </div>
+          <div class="col-md-6 d-grid">
+            <button type="button" class="btn btn-success" (click)="goPaypal()" [disabled]="isDisabled"   >
+              Donate
+            </button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Share" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header bg-success">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="mb-2 p-0 rounded-5 border text-center border-1 ae" >
+            <i><h5 class="h5 p-0"> {{this.link+this.compagneData.slug}}</h5></i>
+          </div>
+        </div>
+        <!-- Modal Footer -->
+        <div class="row d-flex justify-content-center p-2">
+          <div class="col-md-6 d-grid">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Annuler
+            </button>
+          </div>
+          <div class="col-md-6 d-grid">
+            <button type="button" class="btn btn-success" (click)="copyLink()">
+              Copier
+            </button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="isPopupVisible" class="popup-overlay">
+  <div class="popup-content">
+    <p [ngClass]="{'error-message': isError, 'success-message': !isError}">
+      {{ popupMessage }}
+    </p>
+    <button (click)="closePopup()" class="btn" [ngClass]="isError ? 'btn-danger' : 'btn-success'">
+      Close
+    </button>
+  </div>
+</div>

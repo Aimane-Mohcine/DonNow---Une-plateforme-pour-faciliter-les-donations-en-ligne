@@ -1,0 +1,112 @@
+.custom-carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.custom-carousel-prev,
+.custom-carousel-next {
+  background-color: transparent;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-prev-icon,
+.custom-next-icon {
+  font-size: 24px;
+  color: #000000;
+}
+
+.custom-hr {
+  border: none;
+  border-top: 2px solid #000000;
+  width: 40px;
+}
+
+.card-header,.card {
+  border: none;
+  background-color: #FFFFFF/* Removes the border */
+}
+.seven h2 {
+  text-align: center;
+  font-size:30px; font-weight:300; color:#222; letter-spacing:1px;
+  text-transform: uppercase;
+
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.t{
+  color:red;
+}
+
+
+.btn-outline-primary:hover{
+  background-color: #063970;
+  border-color: #063970;
+  color: white;
+}
+.btn-outline-primary{
+  color: #063970;
+  border-color: #063970;
+}
+.btn-outline-primary-1:hover{
+  background-color: #0955a6;
+  border-color: #0955a6;
+  color: white;
+}
+.btn-outline-primary-1{
+  color: #0955a6;
+  border-color: #0955a6;
+}
+/* Set a fixed height for the banner */
+.banner {
+  height: 500px; /* Adjust this value to your preferred height */
+  overflow: hidden; /* Ensure that if the image overflows, it gets clipped */
+}
+
+/* Make the image fill the container while maintaining its aspect ratio */
+.carousel-item img {
+  width: 100%; /* Ensure the image spans the full width */
+  height: 100%; /* Ensure the image spans the full height */
+  object-fit: contain; /* Make the image fit the container while maintaining aspect ratio */
+}
+
+
+
+
+
+.seven h2:after,.seven h2:before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #3478C3;
+  border-top: 1px solid #3478C3;
+  height: 5px;
+  background-color:#f8f8f8;
+}
+.card-body {
+  margin: 0 auto;  /* Centers it horizontally */
+  width: 80%; /* Optional: Set width to control size */
+  top: -100px;          /* Moves the element 20px down from its original position */
+}
+
+.a{
+  width: 100%;
+  border-bottom: 2px solid #3478C3;
+  border-top: 2px solid #3478C3;
+  height: 2px;
+  content: " ";
+  display: block;
+  background-color:#f8f8f8;
+}

@@ -1,0 +1,133 @@
+<div id="page" class="site">
+  <header class="site-header ">
+    <!-- Top Header Close -->
+    <div class="bg-light py-1">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <!-- Logo -->
+          <div class="logo-wrap" itemprop="logo">
+            <img src="assets/logo-no-background.png" alt="Logo Image" class="img-fluid" style="width: 10%">
+          </div>
+          <!-- Navigation -->
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto aa">
+                <li class="nav-item d-inline-flex align-items-center gap-0 p-2">
+                  <i class="bi bi-house-door d1"></i>
+                  <a [routerLink]="['/']" class="nav-link d">Home</a>
+                </li>
+                <li class="nav-item d-inline-flex align-items-center gap-0 p-2">
+                  <i class="bi bi-journals d1"></i>
+                  <a [routerLink]="['/Donations']" class="nav-link d">Donations</a>
+                </li>
+                <!-- Customized Dropdown for Inscription and Login -->
+                <li class="nav-item dropdown d-inline-flex align-items-center gap-0 p-2">
+                  <i class="bi bi-person d1"></i>
+                  <a
+                    class="nav-link dropdown-toggle d"
+                    href="#"
+                    id="authDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Account
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end custom-dropdown-menu" aria-labelledby="authDropdown">
+                    <li>
+                      <a [routerLink]="['/Login']" class="dropdown-item d-flex align-items-center">
+                        <i class="bi bi-box-arrow-in-right d1 me-2"></i> Login
+                      </a>
+                    </li>
+                    <li>
+                      <a [routerLink]="['/Inscription']" class="dropdown-item d-flex align-items-center">
+                        <i class="bi bi-pencil-square d1 me-2"></i> Inscription
+                      </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <router-outlet></router-outlet>
+
+
+  <!-- End of Query Section -->
+
+  <footer class="page-footer" itemprop="footer" >
+    <!-- First Section -->
+    <div class="footer-first-section py-5 justify-content-center  text-light">
+      <div class="container">
+        <div class="row">
+          <!-- About Section -->
+          <div class="col-md-4 mb-4">
+            <h5 class="text-center">About <hr></h5>
+            <p class="text-center">Nous sommes une plateforme dédiée à connecter les donateurs aux personnes dans le besoin. Notre rôle est de faciliter les donations en ligne de manière simple, sécurisée et transparente. Nous croyons en la puissance de la solidarité et nous offrons à chacun la possibilité de faire une différence en soutenant des causes importantes.</p>
+          </div>
+
+          <!-- Links Section -->
+          <div class="col-md-4 mb-4 justify-content-center container">
+            <h5 class="text-center"> Links <hr></h5>
+            <table class="mx-auto text-center">
+              <tbody>
+              <tr>
+                  <td><span class="bi bi-nut-fill"></span></td>
+                  <td><a [routerLink]="['/']" class="text-light link-underline-opacity-0 link-underline"> Home</a></td>
+                  <td><span class="bi bi-nut-fill  m-1"></span></td>
+                  <td><a [routerLink]="['/Donations']" class="text-light link-underline-opacity-0 link-underline"> Donations</a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <!-- Quick Contact Section -->
+          <div class="col-md-4 mb-4 text-center">
+            <h5>Quick Contact
+              <hr></h5>
+            <h6><a href="tel:+9779813639131" class="text-light  link-underline link-underline-opacity-0"><i class="bi bi-telephone-forward m-1"></i> : +977 9813639131</a></h6>
+            <h6><a href="mailto:info@educationpro.com" class="text-light  link-underline link-underline-opacity-0"><i class="bi bi-envelope m-1"></i>:  &#64;gmail.com</a></h6>
+            <h6><a href="#" class="text-light link-underline link-underline-opacity-0"><i class="bi bi-geo-alt m-1"></i> : Maroc , Rabat </a></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of First Section -->
+
+    <!-- Second Section -->
+    <div class="social-media-section py-3">
+      <div class="container">
+        <div class="d-flex justify-content-center align-items-center">
+          <hr class="flex-grow-1 border border-2 mx-3">
+          <ul class="social-list list-inline mb-0">
+            <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-skype"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-youtube"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-instagram"></i></a></li>
+          </ul>
+          <hr class="flex-grow-1 border border-2 mx-3">
+        </div>
+      </div>
+    </div>
+    <!-- End of Second Section -->
+
+    <!-- Last Section -->
+    <div class="footer-last-section py-3 text-light text-center">
+      <div class="container">
+        <p class="mb-0">Copyright 2024 &copy; Profclean Academy</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+

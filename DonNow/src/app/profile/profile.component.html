@@ -1,0 +1,61 @@
+<div class="mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12">
+      <div class="card p-3 py-4">
+        <div class="text-center">
+          <img src="{{userData.photoUrl}}" width="100" class="rounded-circle">
+        </div>
+
+        <div class="text-center mt-3">
+          <h5 class="mt-2 py-2 mb-0">{{userData.nom}} {{userData.prenom}}</h5>
+          <span class="py-2">{{userData.email}}</span>
+          <div class="py-2 text-center fw-semibold mt-1">
+            <p class="fonts fw-semibold">{{userData.telephone}}</p>
+          </div>
+          <div class="px-4 py-2 text-center fw-semibold mt-1">
+            <p class="fonts fw-semibold"> {{userData.description}}  </p>
+          </div>
+
+          <!-- Form-like buttons -->
+          <div>
+            <div class="text-center seven py-5">
+              <h2 class="h3" style="color: #FE5630">
+                Compagnes
+              </h2>
+            </div>
+            <!-- Course Listing Section -->
+            <section class="course-listing-page">
+              <div class="container">
+                <div class="row" id="cGrid">
+                  <div *ngFor="let c of compagnes" class="col-md-4 col-sm-6 col-12">
+                    <div class="grid-item mb-4">
+                      <div class="card h-100">
+                        <img src="{{c.photoUrl}}" class="card-img-top" alt="Course Title">
+                        <div class="card-body">
+                          <p class="card-text text-center">{{ c.titre }}</p>
+                          <!-- Status Indicator -->
+                          <div class="status-indicator text-center py-3" >
+                            <span *ngIf="c.isTermine == false" class="badge bg-success">En cours</span>
+                            <span *ngIf="c.isTermine == true" class="badge bg-danger">terminer</span>
+                            <!-- OR -->
+                            <!-- <span class="badge bg-warning">En cours</span> -->
+                          </div>
+                          <a [routerLink]="['/Donate',c.slug]" class="d-grid py-2 text-white text-center btn link-underline link-underline-opacity-0" style="background: #FE5630"> Voir Compagne </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- Additional course items can be added here -->
+
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

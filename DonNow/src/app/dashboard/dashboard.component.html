@@ -1,0 +1,83 @@
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <!-- Profil de l'utilisateur -->
+    <div class="col-md-4 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img
+          class="rounded-circle mt-5"
+          width="150px"
+          [src]="user.photoUrl || 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg'"
+          alt="Photo de profil"
+        />
+        <span class="font-weight-bold">{{ user.prenom }}</span>
+        <span class="text-black-50">{{ user.email }}</span>
+      </div>
+    </div>
+
+    <!-- Formulaire des paramètres de profil -->
+    <div class="col-md-6 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Paramètres du profil</h4>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <label class="labels">Nom</label>
+            <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="user.nom" />
+          </div>
+          <div class="col-md-6">
+            <label class="labels">Prénom</label>
+            <input type="text" class="form-control" placeholder="Prénom" [(ngModel)]="user.prenom" />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <label class="labels">N° CIN</label>
+            <input type="text" class="form-control" placeholder="N° CIN" [(ngModel)]="user.cin" />
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Téléphone</label>
+            <input type="text" class="form-control" placeholder="Téléphone" [(ngModel)]="user.telephone" />
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Email</label>
+            <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" />
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Adresse</label>
+            <input type="text" class="form-control" placeholder="Adresse" [(ngModel)]="user.adresse" />
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Date de naissance</label>
+            <input type="date" class="form-control" placeholder="Date de naissance" [(ngModel)]="user.dateDeNaissance" />
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Description personnelle</label>
+            <textarea type="text" class="form-control" placeholder="Description personnelle" [(ngModel)]="user.description" ></textarea>
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Email PayPal</label>
+            <input type="text" class="form-control" placeholder="Email PayPal" [(ngModel)]="user.paypal" />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="labels">Mot de passe</label>
+            <input type="password" class="form-control" placeholder="Mot de passe" [(ngModel)]="pasword" />
+          </div>
+          <div class="col-md-6">
+            <label class="labels">Confirmation</label>
+            <input type="password" class="form-control" placeholder="Confirmation" [(ngModel)]="pasword2" />
+          </div>
+          <!-- Message d'erreur -->
+          <div *ngIf="passwordError" class="text-danger text-center mb-3">
+            Les mots de passe ne sont pas identiques.
+          </div>
+        </div>
+        <div class="mt-5 d-grid text-center">
+          <button class="btn btn-primary profile-button" (click)="Update()" type="button">Enregistrer le profil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

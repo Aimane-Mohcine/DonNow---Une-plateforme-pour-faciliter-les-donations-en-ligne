@@ -1,0 +1,90 @@
+.full-height {
+  height: 100vh;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+.zz{
+  background-color: #d3e4f6;
+}
+
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-md-5 {
+  padding: 20px;
+}
+
+.logo {
+  max-width: 150px; /* Adjust the size of the logo */
+  display: block;
+  margin: 0 auto;
+}
+
+.col-form-label{
+  color: #063970;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="file"],
+input[type="tel"],
+textarea,
+input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #ccc; /* Gray underline */
+  border-radius: 0;
+  outline: none;
+  padding: 5px 0;
+  width: 100%;
+  font-family: 'Calibri', sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+input[type="file"]:focus,
+textarea,
+input[type="password"]:focus {
+  border-bottom-color: #063970; /* Blue underline on focus */
+}
+
+.p{
+  border-color: #063970;
+  background-color: #063970;
+  color: #fff;
+}
+
+
+
+.form-label {
+  margin-bottom: 5px;
+  background-color: #FFFFFF;
+}
+
+/* Fixed width for the form container */
+.form-container {
+  background-color: #FFFFFF;
+  font-weight: bold;
+  width: 100%;
+  max-width:  100%; /* Set maximum width */
+  margin: 0 auto;
+}
+
+h3.h3 {
+  font-family: 'Roca One', sans-serif; /* Apply Roca One Bold */
+  font-weight: bold; /* Ensure bold weight is applied */
+  color: #063970; /* Set default color */
+}
+
+.card{
+  border: 0;
+}

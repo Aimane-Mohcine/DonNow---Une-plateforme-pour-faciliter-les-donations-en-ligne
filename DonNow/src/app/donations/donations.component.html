@@ -1,0 +1,32 @@
+<div class="c">
+  <!-- Header -->
+  <header>
+    <div class="p-5 text-center">
+      <h3 class="h1 fw-bold p-0" style="color: #063970; font-family:'Berlin Sans FB Demi';"> Un Petit Geste pour un Grand Changement </h3>
+      <p class="p-0 text-center gap-3"> Ensemble, nous avons le pouvoir de transformer des vies. Notre plateforme met en relation des donateurs généreux et des bénéficiaires dans le besoin, créant ainsi un pont vers un avenir plus radieux. En contribuant, vous offrez bien plus qu’un simple don : vous donnez de l’espoir, de la dignité et une chance à ceux qui en ont le plus besoin. </p>
+      <div class="justify-content-center d-flex align-content-center">
+        <hr class="w-50">
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Course Listing Section -->
+  <section class="course-listing-page ">
+    <div class="container-fluid">
+      <div  *ngFor="let c of compagnes" class="card bg-light-subtle mt-4">
+        <img src="{{c.photoUrl}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="text-section">
+            <h5 class="card-title fw-bold" style="color: #063970">{{c.titre}}</h5>
+            <p class="card-text" >{{c.description}}</p>
+          </div>
+          <div class="cta-section">
+            <div class="h3"><span class="btn btn-danger">{{c.montant}}</span> / <span class="btn text-white" style="background: #063970"> {{c.montant_necessaire}}</span></div>
+            <a [routerLink]="['/Donate',c.slug]" class="btn text-white btn-success ">Donate Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

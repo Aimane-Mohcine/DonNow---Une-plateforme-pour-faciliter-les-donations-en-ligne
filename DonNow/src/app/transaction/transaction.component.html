@@ -1,0 +1,98 @@
+<div style="background: #fff; width: 1150px">
+  <div class="form-holder " >
+    <div class="form-content ">
+      <div class="form-items gradient-border">
+        <div class="m-md-5">
+          <h3>Nouvelle Compagne</h3>
+          <p>Fill in the data below.</p>
+        </div>
+
+        <!-- Formulaire -->
+        <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+          <!-- Titre -->
+          <div class="col-md-12 d-grid">
+            <label for="name" class="form-label">Titre</label>
+            <input
+              class="form-control "
+              type="text"
+              id="name"
+              placeholder="Titre"
+              [(ngModel)]="formData.name"
+              name="name"
+              required
+            />
+          </div>
+
+          <!-- Description -->
+          <div class="col-md-12 py-2">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control "
+              id="description"
+              rows="3"
+              placeholder="Description"
+              [(ngModel)]="formData.description"
+              name="description"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Montant -->
+          <div class="col-md-12 py-2">
+            <label for="donationAmount" class="form-label"     pattern="^[0-9]+(\.[0-9]{1,2})?$">Montant nécessaire pour la campagne</label>
+            <input
+              class="form-control "
+              type="text"
+              id="donationAmount"
+              placeholder="Montant"
+              [(ngModel)]="formData.donationAmount"
+              name="donationAmount"
+              required
+            />
+          </div>
+
+          <!-- Image -->
+          <div class="col-md-12 py-2">
+            <label for="image" class="form-label">Télécharger une image</label>
+            <input
+              class="form-control "
+              type="file"
+              id="image"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              required
+            />
+          </div>
+
+          <!-- Date Finale -->
+          <div class="col-md-12 py-2">
+            <label for="finale" class="form-label">Date finale</label>
+            <input
+              class="form-control Gradient Border"
+              type="date"
+              id="finale"
+              [(ngModel)]="formData.finale"
+              name="finale"
+              required
+            />
+          </div>
+
+          <!-- Bouton -->
+          <div class="form-button mt-3">
+            <button type="submit" class="btn btn-primary w-100"   [disabled]="isDisabled">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showPopup" class="popup-overlay">
+  <div class="popup">
+    <h3>Campagne créée avec succès !</h3>
+    <p>Voici le lien pour votre campagne :</p>
+    <a [href]="'http://localhost:4200/Donate/' +slug" target="_blank">
+      http://localhost:4200/Donate/{{slug}}
+    </a>
+    <button (click)="closePopup()">Fermer</button>
+  </div>
+</div>

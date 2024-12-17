@@ -1,0 +1,50 @@
+body {
+  background: rgb(99, 39, 120)
+}
+
+.profile-button {
+  background: rgb(253, 253, 253); /* Couleur de fond par défaut */
+  box-shadow: none;
+  border: #063970 1px solid; /* Bordure par défaut */
+  color: #063970; /* Couleur de texte par défaut */
+  transition: all 0.3s ease; /* Animation douce pour les changements de style */
+}
+
+.profile-button:hover {
+  background: #063970; /* Couleur de fond au survol */
+  color: white; /* Couleur du texte au survol */
+}
+
+.profile-button:focus {
+  background: #063970; /* Couleur de fond au focus */
+  color: white; /* Couleur du texte au focus */
+  box-shadow: none;
+}
+
+.profile-button:active {
+  background: #063970; /* Couleur de fond lorsqu'on clique */
+  color: white; /* Couleur de texte lorsqu'on clique */
+  box-shadow: none;
+}
+
+
+.back:hover {
+  color: #064F9EFF;
+  cursor: pointer
+}
+
+.labels {
+  font-size: 11px
+}
+
+.add-experience:hover {
+  background: #064F9EFF;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #064F9EFF
+}
+textarea {
+  width: 100%; /* Ajustez à la largeur du conteneur */
+  height: 120px; /* Définissez la hauteur selon vos besoins */
+  resize: vertical; /* Permettre seulement un redimensionnement vertical */
+}
