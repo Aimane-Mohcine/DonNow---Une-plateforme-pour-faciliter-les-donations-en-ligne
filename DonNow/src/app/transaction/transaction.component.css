@@ -193,3 +193,7 @@ input::placeholder, textarea::placeholder {
   border-image-source: linear-gradient(90deg, #063970, #ff606e); /* Apply gradient to the border */
   border-radius: 10px; /* Optional: Add rounded corners */
 }
+.py-6 {
+  padding-top: 4rem; /* 48px */
+  padding-bottom: 4rem; /* 48px */
+}
