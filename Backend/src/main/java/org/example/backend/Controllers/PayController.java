@@ -2,13 +2,12 @@ package org.example.backend.Controllers;
 
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
-import lombok.RequiredArgsConstructor;
 import org.example.backend.Entities.Compagne;
 import org.example.backend.Entities.User;
 import org.example.backend.Repository.CompagneRepsitory;
 import org.example.backend.Repository.UserRepository;
-import org.example.backend.Service.PaypalServiceClient;
-import org.example.backend.Service.PaypalServiceSeller;
+import org.example.backend.Service.PaypalServiceSend;
+import org.example.backend.Service.PaypalServiceReceive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,11 +30,11 @@ public class PayController {
     UserRepository userRepository;
 
 
-    private final PaypalServiceClient paypalServiceClient;
+    private final PaypalServiceSend paypalServiceClient;
     @Autowired
-    private PaypalServiceSeller paypalServiceSeller;
+    private PaypalServiceReceive paypalServiceSeller;
 
-    public PayController(PaypalServiceClient paypalServiceClient) {
+    public PayController(PaypalServiceSend paypalServiceClient) {
         this.paypalServiceClient = paypalServiceClient;
     }
 

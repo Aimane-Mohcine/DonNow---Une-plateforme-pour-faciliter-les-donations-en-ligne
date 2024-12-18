@@ -1,0 +1,80 @@
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Subtle gradient background */
+  font-family: 'Roboto', sans-serif; /* Modern font style */
+  color: #333;
+}
+
+.card {
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden; /* Ensure no overflow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Interactive hover effect */
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.card-header {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c); /* Vibrant gradient background */
+  font-size: 1.5rem; /* Larger font for the header */
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.card-header .header-glow {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 65, 108, 0.4), rgba(0, 0, 0, 0));
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  filter: blur(25px);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.card-body p.text-danger {
+  font-size: 1.25rem; /* Large and bold error message */
+  color: #ff4b2b; /* Matching color with the header */
+}
+
+.card-body p.text-secondary {
+  font-size: 1rem; /* Subtle secondary text */
+}
+
+.btn-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #6a11cb, #2575fc); /* Gradient button */
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px; /* Rounded button */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+.card-footer {
+  border-top: 1px solid #f0f0f0; /* Subtle divider */
+}

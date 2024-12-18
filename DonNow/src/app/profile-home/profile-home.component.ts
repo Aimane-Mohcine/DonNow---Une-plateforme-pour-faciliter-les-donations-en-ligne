@@ -15,7 +15,34 @@ export class ProfileHomeComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute,private http: HttpClient) {}
 
   ngOnInit(): void {
+
     this.userId = this.route.snapshot.paramMap.get('id');
+    const token = localStorage.getItem('jwtToken');
+
+    const id =this.userId
+    if (token) {
+      // Appeler le backend pour valider le token
+      this.http.post("http://localhost:8081/api/users/validate-token", { token ,id}).subscribe({
+        next: (response: any) => {
+          if (!response.valid) {
+            // Si le token est invalide ou expiré
+
+            this.router.navigate(['/error']); // Rediriger vers la page d'erreur
+          }
+        },
+        error: (err) => {
+          console.error('Erreur lors de la validation du token :', err);
+
+          this.router.navigate(['/error']); // Rediriger en cas d'erreur
+        }
+      });
+    } else {
+      // Si aucun token n'est trouvé, rediriger directement vers la page d'erreur
+      this.router.navigate(['/error']);
+    }
+
+
+
 
 
     // Requête GET pour récupérer les données utilisateur
@@ -35,7 +62,7 @@ export class ProfileHomeComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('user');  // Clear user data from localStorage
+    localStorage.clear();
     this.router.navigate(['/']); // Redirect to login page
   }
 }

@@ -4,6 +4,7 @@ import jakarta.mail.internet.MimeMessage;
 import org.example.backend.Entities.User;
 import org.example.backend.Repository.UserRepository;
 import org.example.backend.Service.CloudinaryService;
+import org.example.backend.Service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,9 @@ public class UserController {
     private UserRepository userRepository;
     @Autowired
     private CloudinaryService cloudinaryService;
+
+    @Autowired
+    private JwtService jwtService;
 
 
     public static String hashPassword(String password) throws NoSuchAlgorithmException {
@@ -130,9 +134,11 @@ public class UserController {
         if (!user.getMotDePasse().equals(hashedPassword)) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Mot de passe incorrect.");
         }
-
-        // Si tout est correct
-        return ResponseEntity.ok(Map.of("message", "Connexion réussie!", "id", user.getId()));
+        String token = jwtService.generateToken(email);
+        return ResponseEntity.ok(Map.of(
+                "id", user.getId(),
+                "token", token
+        ));
 
     }
 
@@ -293,5 +299,52 @@ public class UserController {
             return ResponseEntity.status(404).body("{\"success\": false, \"message\": \"User not found\"}");
         }
 
+    }
+
+
+
+    @PostMapping("/validate-token")
+    public ResponseEntity<Map<String, Object>> validateToken(
+            @RequestBody Map<String, String> request) {
+        String token = request.get("token");
+        String userIdString = request.get("id");
+        Map<String, Object> response = new HashMap<>();
+
+
+
+        if (userIdString == null || token == null) {
+            response.put("valid", false);
+            response.put("message", "Token ou ID utilisateur manquant.");
+            return ResponseEntity.ok(response);
+        }
+
+
+
+        // Valider le token et récupérer l'email
+        String email = jwtService.validateTokenAndGetEmail(token);
+
+
+        if (email != null) {
+
+
+
+            User u= userRepository.findByEmail(email).get();
+            long userId = Long.parseLong(userIdString);
+
+
+            if(u.getId()==userId){
+
+                response.put("valid", true);
+                response.put("message", "Le token est valide.");
+                return ResponseEntity.ok(response);
+            }
+            response.put("valid", false);
+            response.put("message", "Le token est invalide ou expiré.");
+        } else {
+            response.put("valid", false);
+            response.put("message", "Le token est invalide ou expiré.");
+        }
+
+        return ResponseEntity.ok(response);
     }
 }

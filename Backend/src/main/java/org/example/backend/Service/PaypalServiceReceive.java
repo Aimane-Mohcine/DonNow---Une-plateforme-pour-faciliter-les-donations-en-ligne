@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class PaypalServiceSeller {
+public class PaypalServiceReceive {
     @Value("${paypal.client-id}")
     private String clientId;
     @Value("${paypal.client-secret}")
@@ -21,7 +21,7 @@ public class PaypalServiceSeller {
     private String mode;
 
     private final RestTemplate restTemplate;
-    public PaypalServiceSeller(RestTemplate restTemplate) {
+    public PaypalServiceReceive(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 

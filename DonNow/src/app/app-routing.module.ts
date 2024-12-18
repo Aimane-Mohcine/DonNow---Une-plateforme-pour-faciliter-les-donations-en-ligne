@@ -11,11 +11,14 @@ import {ProfileComponent} from "./profile/profile.component";
 import {ProfileHomeComponent} from "./profile-home/profile-home.component";
 import {TransactionComponent} from "./transaction/transaction.component";
 import {FMPassComponent} from "./fm-pass/fm-pass.component";
+import {ErreurComponent} from "./erreur/erreur.component";
 
 const routes: Routes = [
   { path: 'Dashboard/:id',title:'Dashboard', component: DashboardComponent },
   { path: 'Donate/:Sub',title:'Donate', component: DonateComponent },
   { path: 'Donate/:Sub/:id',title:'Donate', component: DonateComponent },
+  { path: 'error', component: ErreurComponent },
+
 
   { path: '',title:'DonNow', component: HomeComponent },
   { path: 'Donations',title:'Donations', component: DonationsComponent },

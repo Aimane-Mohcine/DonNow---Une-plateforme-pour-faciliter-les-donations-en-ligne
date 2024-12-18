@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 import { ProfileHomeComponent } from './profile-home/profile-home.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { FMPassComponent } from './fm-pass/fm-pass.component';
+import { ErreurComponent } from './erreur/erreur.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FMPassComponent } from './fm-pass/fm-pass.component';
     DonateComponent,
     ProfileHomeComponent,
     TransactionComponent,
-    FMPassComponent
+    FMPassComponent,
+    ErreurComponent
   ],
   imports: [
     BrowserModule,

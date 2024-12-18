@@ -23,19 +23,22 @@ export class LoginComponent {
 
     this.http.post('http://localhost:8081/api/users/login', credentials).subscribe(
       (response: any) => {
-        // Récupérer l'id et afficher un message de succès
+        // Sauvegarder le token dans localStorage
+        const token = response.token;
         const userId = response.id;
-        this.router.navigate(['/Profiles/'+userId]); // Redirigez après la connexion réussie
 
+        localStorage.setItem('jwtToken', token);
+        // Redirection vers le profil avec l'id de l'utilisateur
+        this.router.navigate([`/Profiles/${userId}`]);
       },
       (error) => {
-        console.error("Erreur renvoyée par le backend :", error);
+        console.error('Erreur renvoyée par le backend :', error);
         if (error.status === 404) {
           this.errorMessage = 'Email introuvable.';
-          alert("Email introuvable");
+          alert('Email introuvable');
         } else if (error.status === 401) {
           this.errorMessage = 'Mot de passe incorrect.';
-          alert("Mot de passe incorrect.");
+          alert('Mot de passe incorrect.');
         } else {
           this.errorMessage = `Une erreur est survenue : ${error.message}`;
           alert(`Erreur : ${error.message}`);
@@ -43,6 +46,7 @@ export class LoginComponent {
       }
     );
   }
+
 
 
 }
